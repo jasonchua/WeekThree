@@ -66,8 +66,22 @@
         self.newsView.center = CGPointMake(touchPosition.x - self.offset.x , self.newsView.center.y);
         
     } else if (sender.state == UIGestureRecognizerStateEnded) {
-        //check state of HV and animate left or right accordingly
-        
+        //check state of news and animate left or right accordingly
+        if (self.newsView.center.x > 723) {
+            //animate down
+            [UIView animateWithDuration:2 delay:0 usingSpringWithDamping:5.0 initialSpringVelocity:8.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                self.newsView.center = CGPointMake(723, 441);
+            } completion:nil];
+            
+        }
+        else if (self.newsView.center.x < -403){
+            //animate up
+            [UIView animateWithDuration:2 delay:0 usingSpringWithDamping:5.0 initialSpringVelocity:8.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                self.newsView.center = CGPointMake(-403, 441);
+            } completion:nil];
+            
+        }
+
     }
 
     
